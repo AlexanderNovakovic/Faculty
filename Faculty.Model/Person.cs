@@ -25,12 +25,12 @@ namespace Faculty.Model
             // _age = DateTime.Now.Year - dateOfBirth.Year;
         }
 
-        public int getAge()
+        public int GetAge()
         {
             return DateTime.Now.Year - DateOfBirth.Year;
         }
 
-        public virtual bool isValid()
+        public virtual bool IsValid()
         {
             if (IsNullOrEmpty(FirstName) || IsNullOrEmpty(LastName))
             {
@@ -41,6 +41,6 @@ namespace Faculty.Model
         }
 
         public override string ToString() => 
-            FirstName + " " + LastName + ", " + getAge() + " years";
+            FirstName + " " + LastName + ", " + GetAge() + " years";
     }
 }

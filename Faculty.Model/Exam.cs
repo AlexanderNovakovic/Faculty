@@ -11,7 +11,7 @@ namespace Faculty.Model
 
         public void Apply(Student student)
         {
-            if (student != null && !ContainsStudent(student))
+            if (student != null && !Contains(student))
             {
                 Students.Add(student);
             }
@@ -21,7 +21,7 @@ namespace Faculty.Model
             }
         }
 
-        public bool ContainsStudent(Student student)
+        public bool Contains(Student student)
         {
             foreach (Student s in Students)
             {

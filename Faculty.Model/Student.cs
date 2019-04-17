@@ -40,9 +40,9 @@ namespace Faculty.Model
             IndexNumber = indexNumber;
         }
 
-        public override bool isValid()
+        public override bool IsValid()
         {
-            if (!base.isValid() || getAge() <= 16)
+            if (!base.IsValid() || GetAge() <= 16)
             {
                 return false;
             }
