@@ -9,5 +9,32 @@ namespace Faculty.Model
         public DateTime ExamDate { get; set; }
         public List<Student> Students { get; set; }
 
+        public void Apply(Student student)
+        {
+            if (student != null && !ContainsStudent(student))
+            {
+                Students.Add(student);
+            }
+            else
+            {
+                Console.WriteLine("Student with entered index number already exists!");
+            }
+        }
+
+        public bool ContainsStudent(Student student)
+        {
+            foreach (Student s in Students)
+            {
+                if (s.IndexNumber == student.IndexNumber)
+                {
+                    return true;
+                } 
+            }
+
+            return false;
+        }
+
+        public override string ToString() => 
+            Course.Title + ", exam date: " + ExamDate;
     }
 }

@@ -7,7 +7,7 @@ namespace Faculty.Model
 {
     public class Student : Person
     {
-        Regex r = new Regex(@"^([0-9])/$" + DateTime.Now.Year);
+        private readonly Regex _reg = new Regex(@"^([0-9])/$" + DateTime.Now.Year);
         public enum Statuses { Regular, DistanceLearning, Graduated}
 
         public string IndexNumber { get; set; }
@@ -47,12 +47,15 @@ namespace Faculty.Model
                 return false;
             }
 
-            if (!r.IsMatch(IndexNumber))
+            if (!_reg.IsMatch(IndexNumber))
             {
                 return false;
             }
 
             return true;
         }
+
+        public override string ToString() => 
+            base.ToString() + ", index number: " + IndexNumber;
     }
 }

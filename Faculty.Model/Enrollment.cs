@@ -1,4 +1,6 @@
-﻿namespace Faculty.Model
+﻿using System;
+
+namespace Faculty.Model
 {
     public class Enrollment
     {
@@ -7,5 +9,19 @@
         public Exam Exam { get; set; }
         public Marks? Mark { get; set; }
         public bool? Passed { get; set; }
+
+        public Enrollment(Exam exam, Student student)
+        {
+            if (exam == null || student == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            Exam = exam;
+            Student = student;
+        }
+
+        public override string ToString() => 
+            "Exam: " + Exam.Course + ", Date: " + Exam.ExamDate + ", Mark: " + Mark;
     }
 }
