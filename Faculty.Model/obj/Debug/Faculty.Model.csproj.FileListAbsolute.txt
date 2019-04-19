@@ -1,0 +1,6 @@
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\bin\Debug\Faculty.Model.dll
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\bin\Debug\Faculty.Model.pdb
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\obj\Debug\Faculty.Model.csprojAssemblyReference.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\obj\Debug\Faculty.Model.csproj.CoreCompileInputs.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\obj\Debug\Faculty.Model.dll
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty.Model\obj\Debug\Faculty.Model.pdb

@@ -5,8 +5,6 @@ namespace Faculty.Model
 {
     public class Person
     {
-        // private readonly int _age;
-
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
@@ -22,7 +20,6 @@ namespace Faculty.Model
             FirstName = firstName;
             LastName = lastName;
             DateOfBirth = dateOfBirth;
-            // _age = DateTime.Now.Year - dateOfBirth.Year;
         }
 
         public int GetAge()

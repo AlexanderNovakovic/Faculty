@@ -1,0 +1,10 @@
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\bin\Debug\Faculty.exe.config
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\bin\Debug\Faculty.exe
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\bin\Debug\Faculty.pdb
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\bin\Debug\Faculty.Model.dll
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\bin\Debug\Faculty.Model.pdb
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\obj\Debug\Faculty.csprojAssemblyReference.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\obj\Debug\Faculty.csproj.CoreCompileInputs.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\obj\Debug\Faculty.csproj.CopyComplete
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\obj\Debug\Faculty.exe
+C:\Users\aleksandar.novakovic\Documents\GitHub\Faculty\Faculty\Faculty\obj\Debug\Faculty.pdb

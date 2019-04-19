@@ -9,6 +9,12 @@ namespace Faculty.Model
         public DateTime ExamDate { get; set; }
         public List<Student> Students { get; set; }
 
+        public Exam(Course course, DateTime examDate)
+        {
+            Course = course;
+            ExamDate = examDate;
+        }
+
         public void Apply(Student student)
         {
             if (student != null && !Contains(student))

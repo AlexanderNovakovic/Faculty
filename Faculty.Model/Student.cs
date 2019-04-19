@@ -7,7 +7,7 @@ namespace Faculty.Model
 {
     public class Student : Person
     {
-        private readonly Regex _reg = new Regex(@"^([0-9])/$" + DateTime.Now.Year);
+        private readonly Regex _reg = new Regex(@"^([0-9/])*$" + DateTime.Now.Year);
         public enum Statuses { Regular, DistanceLearning, Graduated}
 
         public string IndexNumber { get; set; }
@@ -18,6 +18,11 @@ namespace Faculty.Model
         {
             get
             {
+                if (Exams.Count == 0)
+                {
+                    return 0;
+                }
+
                 int sum = 0;
                 foreach (Enrollment exam in Exams)
                 {
@@ -47,6 +52,11 @@ namespace Faculty.Model
                 return false;
             }
 
+            // Console.Out.WriteLine("");
+            // bool isNumber;
+            // int number;
+
+            // isNumber = Int32.TryParse(IndexNumber, out number);
             if (!_reg.IsMatch(IndexNumber))
             {
                 return false;
