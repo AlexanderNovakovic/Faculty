@@ -5,10 +5,11 @@ using System.Text.RegularExpressions;
 
 namespace Faculty.Model
 {
+    public enum Statuses { Regular, DistanceLearning, Graduated}
+
     public class Student : Person
     {
-        private readonly Regex _reg = new Regex(@"^([0-9/])*$" + DateTime.Now.Year);
-        public enum Statuses { Regular, DistanceLearning, Graduated}
+        private readonly Regex _reg = new Regex("([0-9/])" + DateTime.Now.Year);
 
         public string IndexNumber { get; set; }
         public List<Enrollment> Exams { get; set; }
@@ -52,11 +53,6 @@ namespace Faculty.Model
                 return false;
             }
 
-            // Console.Out.WriteLine("");
-            // bool isNumber;
-            // int number;
-
-            // isNumber = Int32.TryParse(IndexNumber, out number);
             if (!_reg.IsMatch(IndexNumber))
             {
                 return false;
