@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Faculty.Model;
 using static System.String;
@@ -53,7 +52,7 @@ namespace Faculty
             }
             else
             {
-                Console.WriteLine("Error!");
+                Console.WriteLine("The entered data is not valid, please try again.");
             }
 
             Console.ReadLine();
@@ -63,8 +62,10 @@ namespace Faculty
         {
             Console.WriteLine("Please enter student's index number.");
             string indexNumber = Console.ReadLine();
+
+            Student st = students.Find(s => s.IndexNumber == indexNumber);
                         
-            if (IsNullOrEmpty(indexNumber) && IsMatch(indexNumber) && students.Where(s => s.IndexNumber == indexNumber).Count() == 0)
+            if (IsNullOrEmpty(indexNumber) || !IsMatch(indexNumber) || st == null)
             {
                 Console.WriteLine("Index number is not valid!");
             }
@@ -90,7 +91,7 @@ namespace Faculty
 
         public static bool Terminate()
         {
-            Console.WriteLine("Would you like to close the app (Y/N)?");
+            Console.WriteLine("Are you sure you want to close the app? (Y/N)");
             if (Console.ReadLine().ToLower() == "y")
             {
                 return true;
