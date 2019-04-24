@@ -11,14 +11,18 @@ namespace Faculty
         {
             bool terminate = false;
 
-            Professor reactProfessor = new Professor("Pera", "Peric", new DateTime(1958, 12, 2));
-            Professor angularProfessor = new Professor("Mika", "Lazic", new DateTime(1976, 11, 13));
+            // Professor mathProfessor = new Professor("Robert", "Langdon", new DateTime(1958, 12, 2), "689123");
+            // Professor programmingProfessor = new Professor("George", "Hamilton", new DateTime(1976, 11, 13), "654442");
 
-            Course reactCourse = new Course("Hooked on React", "Basic course for React developers", reactProfessor);
-            Course angularCourse = new Course("Angular 4", "Angular fundamentals for beginners", angularProfessor);
+            // Course mathCourse = new Course("Mathematics", "Basic course for beginners", mathProfessor);
+            // Course mathCourseTwo = new Course("Operational Research", "Operational research fundamentals for beginners", mathProfessor);
+            // Course programmingCourse = new Course("Databases", "Basic course for beginners", programmingProfessor);
+            // Course programmingCourseTwo = new Course("Analysis and design of IS", "Basic course for beginners", programmingProfessor);
 
-            Exam reactExam = new Exam(reactCourse, new DateTime(2019, 5, 1));
-            Exam angularExam = new Exam(angularCourse, new DateTime(2019, 6, 18));
+            // Exam mathExam = new Exam(mathCourse, new DateTime(2019, 2, 1));
+            // Exam mathExamTwo = new Exam(mathCourseTwo, new DateTime(2019, 4, 3));
+            // Exam progExam = new Exam(programmingCourse, new DateTime(2019, 6, 18));
+            // Exam progExamTwo = new Exam(programmingCourseTwo, new DateTime(2019, 9, 15));
 
             List<Student> students = new List<Student>();
 
@@ -45,7 +49,7 @@ namespace Faculty
                         Remove(students);
                         break;
                     case 4:
-                        Console.WriteLine("Vulvulin!");
+                        GetPassedExams(students);
                         break;
                     case 5:
                         terminate = Terminate();

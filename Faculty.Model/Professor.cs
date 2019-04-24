@@ -6,10 +6,10 @@ namespace Faculty.Model
     {
         public string EmployeeId { get; set; }
 
-        public Professor(string firstName, string lastName, DateTime dateOfBirth) 
+        public Professor(string firstName, string lastName, DateTime dateOfBirth, string employeeId) 
             : base(firstName, lastName, dateOfBirth)
         {
-            
+            EmployeeId = employeeId;
         }
 
         public override string ToString() => 

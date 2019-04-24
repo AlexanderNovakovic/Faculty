@@ -15,16 +15,16 @@ namespace Faculty.Model
             ExamDate = examDate;
         }
 
-        public void Apply(Student student)
+        public bool Apply(Student student)
         {
             if (student != null && !Contains(student))
             {
                 Students.Add(student);
+
+                return true;
             }
-            else
-            {
-                Console.WriteLine("Student with entered index number already exists!");
-            }
+
+            return false;
         }
 
         public bool Contains(Student student)
@@ -41,6 +41,6 @@ namespace Faculty.Model
         }
 
         public override string ToString() => 
-            Course.Title + ", exam date: " + ExamDate;
+            Course.Title + ", exam date: " + ExamDate.ToShortDateString();
     }
 }

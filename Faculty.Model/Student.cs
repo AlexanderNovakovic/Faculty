@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 
@@ -19,18 +21,24 @@ namespace Faculty.Model
         {
             get
             {
-                if (Exams.Count == 0)
+                List<Enrollment> passedExams = Exams.Where(e => e.Passed == true).ToList();
+
+                if (passedExams.Count == 0)
                 {
                     return 0;
                 }
 
                 int sum = 0;
-                foreach (Enrollment exam in Exams)
+
+                foreach (Enrollment exam in passedExams)
                 {
-                    sum += (int)exam.Mark;
+                    if (exam.Passed == true)
+                    {
+                        sum += (int)exam.Mark;
+                    }
                 }
 
-                return sum / Exams.Count;
+                return sum / passedExams.Count;
             }
         }
         
@@ -44,6 +52,35 @@ namespace Faculty.Model
             : base(firstName, lastName, dateOfBirth)
         {
             IndexNumber = indexNumber;
+        }
+
+        public string GetPassedExams()
+        {
+            if (Exams.Count == 0)
+            {
+                return "Student didn't enrol on any exam!";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(ToString());
+
+            string professorId = "";
+
+            foreach (Enrollment exam in Exams)
+            {
+                if (exam.Passed == true)
+                {
+                    if (exam.Exam.Course.Professor.EmployeeId != professorId)
+                    {
+                        sb.AppendLine(exam.Exam.Course.Professor.ToString());
+                        professorId = exam.Exam.Course.Professor.EmployeeId;
+                    }
+
+                    sb.AppendLine(exam.ToString());
+                }                  
+            }
+
+            return sb.ToString();
         }
 
         public override bool IsValid()
@@ -62,6 +99,6 @@ namespace Faculty.Model
         }
 
         public override string ToString() => 
-            base.ToString() + ", index number: " + IndexNumber;
+            base.ToString() + ", index number: " + IndexNumber + ", average mark: " + AverageMark;
     }
 }
