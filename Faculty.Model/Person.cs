@@ -24,7 +24,9 @@ namespace Faculty.Model
 
         public int GetAge()
         {
-            if (DateOfBirth.Date.CompareTo(DateTime.Today.Date) > 0)
+            DateTime date = new DateTime(DateTime.Now.Year, DateOfBirth.Month, DateOfBirth.Day);
+
+            if (DateTime.Compare(date.Date, DateTime.Today.Date) > 0)
             {
                 return DateTime.Now.Year - DateOfBirth.Year - 1;
             }

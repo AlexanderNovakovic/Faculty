@@ -72,11 +72,11 @@ namespace Faculty.Model
                 {
                     if (exam.Exam.Course.Professor.EmployeeId != professorId)
                     {
-                        sb.AppendLine(exam.Exam.Course.Professor.ToString());
+                        sb.AppendLine($"\t{exam.Exam.Course.Professor}");
                         professorId = exam.Exam.Course.Professor.EmployeeId;
                     }
 
-                    sb.AppendLine(exam.ToString());
+                    sb.AppendLine($"\t\t{exam}");
                 }                  
             }
 
