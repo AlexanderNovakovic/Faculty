@@ -56,7 +56,7 @@ namespace Faculty.Model
 
         public string GetPassedExams()
         {
-            if (Exams.Count == 0)
+            if (Exams.Where(e => e.Passed == true).ToList().Count == 0)
             {
                 return "Student didn't enrol on any exam!";
             }
