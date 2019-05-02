@@ -32,8 +32,9 @@ namespace Faculty
                                   "2. Add new student \n" +
                                   "3. Delete student \n" +
                                   "4. Get passed exams \n" +
-                                  "5. Exit program \n" +
-                                  "Choose from 1 to 5...");
+                                  "5. Read students from file \n" +
+                                  "6. Exit program \n" +
+                                  "Choose from 1 to 6...");
 
                 var input = int.Parse(Console.ReadLine());
 
@@ -46,16 +47,19 @@ namespace Faculty
                         AddNewStudent(students);
                         break;
                     case 3:
-                        Remove(students);
+                        Remove(students);                        
                         break;
                     case 4:
                         GetPassedExams(students);
                         break;
                     case 5:
+                        AddStudentsFromFile();
+                        break;
+                    case 6:
                         terminate = Terminate();
                         break;
                     default:
-                        Console.WriteLine("Please choose from 1 to 5...");
+                        Console.WriteLine("Please choose from 1 to 6...");
                         break;
                 }
             }

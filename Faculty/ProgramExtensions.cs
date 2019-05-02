@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Faculty.Model;
 using static System.String;
+using System.IO;
 
 namespace Faculty
 {
@@ -82,9 +83,7 @@ namespace Faculty
 
                         Console.WriteLine("Student with index number {0} has been successfully removed.", indexNumber);
                     }
-                }
-
-                
+                }          
             }
 
             Console.ReadLine();
@@ -118,6 +117,52 @@ namespace Faculty
             return false;
         }
 
+        public static void AddStudentsFromFile()
+        {
+            List<Student> students = ReadStudentsFromFile();
+
+            foreach (Student student in students)
+            {
+                Console.WriteLine(student.ToString());
+            }
+
+            Console.ReadLine();
+        }
+
+        public static List<Student> ReadStudentsFromFile()
+        {
+            List<Student> students = new List<Student>() { };
+
+            string filePath = @"C:\Users\sal_e\Desktop\StudentsInfo.txt";
+
+            try
+            {
+                using (StreamReader reader = File.OpenText(filePath))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        string line = reader.ReadLine();
+                        string[] splitLine = line.Split(',');
+
+                        DateTime date = Convert.ToDateTime(splitLine[3]);
+
+                        Student student = new Student(splitLine[0], splitLine[1], date, splitLine[4]);
+
+                        student.Status = (Statuses)Enum.Parse(typeof(Statuses), splitLine[2]);
+
+                        students.Add(student);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                WriteToLogFile(e.Message, e.StackTrace);
+                Console.WriteLine("An error occured while reading from file.");
+            }
+
+            return students;
+        }
+
         public static void AddEnrollments(Student student)
         {
             Professor mathProfessor = new Professor("Robert", "Langdon", new DateTime(1958, 12, 2), "689123");
@@ -142,6 +187,22 @@ namespace Faculty
                 new Enrollment(progExamTwo, student, Marks.Eight, Passed(true)),
                 new Enrollment(progExamThree, student, Marks.One, Passed(false))
             };
+        }
+
+        public static void WriteToLogFile(string message, string stackTrace)
+        {
+            string filePath = Directory.GetCurrentDirectory() + "\\LogFile.txt";
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Dispose();
+            }
+
+            using (StreamWriter writter = File.AppendText(filePath))
+            {
+                writter.WriteLine(message);
+                writter.WriteLine(stackTrace);
+            }
         }
 
         public static bool IsMatch(string input)
